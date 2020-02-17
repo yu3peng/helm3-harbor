@@ -1,2 +1,105 @@
-# helm3-harbor
-Helm3 使用 harbor 作为仓库存储 charts
+### 1. 登录免费 Kubernetes 资源
+
+登录以下网址
+https://www.katacoda.com/courses/kubernetes/guestbook
+
+认证后，点击 START SCENARIO 按钮
+
+![](katacoda.png)
+
+
+### 2. 安装 helm 3
+
+Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PATH 下就可以使用了。
+
+```
+# cd /opt && wget https://get.helm.sh/helm-v3.1.0-linux-amd64.tar.gz
+# tar -xvf helm-v3.1.0-linux-amd64.tar.gz
+# mv linux-amd64/helm /usr/local/bin/
+
+# helm version
+```
+
+#### 2.1  helm 快速命令补全
+
+```
+# yum install -y bash-completion 
+# source /usr/share/bash-completion/bash_completion 
+# source <(helm completion bash) 
+# echo "source <(helm completion bash)" >> ~/.bashrc
+```
+
+### 3. 利用 helm3 安装 harbor
+
+```
+# helm repo add goharbor https://helm.goharbor.io
+
+# helm install harbor goharbor/harbor --set persistence.enabled=false \
+--set expose.type=nodePort --set expose.tls.enabled=false \
+--set externalURL=http://127.0.0.1:30002
+```
+
+### 4. 访问 harbor
+
+点击如下图所示的 Guestbook
+
+![](guestbook.png)
+
+在以下页面中的方框输入 30002，然后点击 Display Port 按钮
+
+![](port.png)
+
+出现 harbor 登录页面, harbor 的默认账号密码是 admin/Harbor12345
+
+![barbor](harbor.png)
+
+
+
+### 5. 推 chart 到 harbor
+
+先下载一个chart包，待用
+
+```
+# helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
+# helm pull stable/nginx-ingress
+```
+
+新建一个chart repo
+
+![](chart repo.png)
+
+添加 repo 到 helm 中
+
+```
+# helm repo add test http://127.0.0.1:30002/chartrepo/chart_repo
+```
+
+安装使用 helm-push 插件
+
+```
+# helm plugin install https://github.com/chartmuseum/helm-push
+```
+
+推送 chart 到 harbor 中
+
+```
+# helm push nginx-ingress-0.9.5.tgz test --username admin --password Harbor12345
+```
+
+当出现以下提示时，说明推送正常
+
+```
+Pushing nginx-ingress-0.9.5.tgz to test...
+Done.
+```
+
+在 harbor 页面中可以查看到相关信息
+
+![](nginx.png)
+
+ 
+
+### 参考
+
+1. [Helm 3 使用 harbor 作为仓库存储 charts](https://aijishu.com/a/1060000000003886)
+2. [九析带你轻松完爆 helm3 harbor](https://www.qedev.com/cloud/14146.html)
