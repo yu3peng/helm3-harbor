@@ -3,10 +3,7 @@
 登录以下网址
 https://www.katacoda.com/courses/kubernetes/guestbook
 
-认证后，点击 START SCENARIO 按钮
-
-![](katacoda.png)
-
+认证后，点击 ***START SCENARIO*** 按钮
 
 ### 2. 安装 helm 3
 
@@ -41,19 +38,11 @@ Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PAT
 
 ### 4. 访问 harbor
 
-点击如下图所示的 Guestbook
+点击页面上的 ***Guestbook***
 
-![](guestbook.png)
-
-在以下页面中的方框输入 30002，然后点击 Display Port 按钮
-
-![](port.png)
+在端口输入框中输入 ***30002***，然后点击 ***Display Port*** 按钮
 
 出现 harbor 登录页面, harbor 的默认账号密码是 admin/Harbor12345
-
-![barbor](harbor.png)
-
-
 
 ### 5. 推 chart 到 harbor
 
@@ -64,9 +53,7 @@ Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PAT
 # helm pull stable/nginx-ingress
 ```
 
-新建一个chart repo
-
-![](chart repo.png)
+在 ***项目*** 栏中点击 ***新建项目*** 按钮，新建一个chart repo，起名为 ***chart_repo***
 
 添加 repo 到 helm 中
 
@@ -93,11 +80,7 @@ Pushing nginx-ingress-0.9.5.tgz to test...
 Done.
 ```
 
-在 harbor 页面中可以查看到相关信息
-
-![](nginx.png)
-
- 
+点击 harbor 页面的中 ***chart_repo*** 项目链接，可以查看到相关信息。 
 
 ### 参考
 
