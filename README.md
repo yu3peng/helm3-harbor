@@ -49,6 +49,7 @@ Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PAT
 先下载一个chart包，待用
 
 ```
+# helm repo add google  https://kubernetes-charts.storage.googleapis.com
 # helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
 # helm pull stable/nginx-ingress
 ```
