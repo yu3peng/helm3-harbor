@@ -82,8 +82,3 @@ Done.
 ```
 
 点击 harbor 页面的中 ***chart_repo*** 项目链接，可以查看到相关信息。 
-
-### 参考
-
-1. [Helm 3 使用 harbor 作为仓库存储 charts](https://aijishu.com/a/1060000000003886)
-2. [九析带你轻松完爆 helm3 harbor](https://www.qedev.com/cloud/14146.html)
