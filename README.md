@@ -17,15 +17,6 @@ Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PAT
 # helm version
 ```
 
-#### 2.1  helm 快速命令补全
-
-```
-# apt install -y bash-completion 
-# source /usr/share/bash-completion/bash_completion 
-# source <(helm completion bash) 
-# echo "source <(helm completion bash)" >> ~/.bashrc
-```
-
 ### 3. 利用 helm3 安装 harbor
 
 ```
