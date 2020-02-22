@@ -55,7 +55,7 @@ Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PAT
 
 找到 externalURL 字段，将值改为 http://127.0.0.1:30002
 
-配置修改完只有，保存。
+配置修改完后，保存。
 
 # helm install barbor .
 ```
