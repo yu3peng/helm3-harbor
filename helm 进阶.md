@@ -53,7 +53,7 @@ Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PAT
 
 # / externalURL
 
-找到 ***externalURL*** 字段，将值改为 ***http://127.0.0.1:30080***
+找到 ***externalURL*** 字段，将值改为 ***http://127.0.0.1:30002***
 
 配置修改完只有，保存。
 
@@ -64,7 +64,7 @@ Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PAT
 
 点击页面上的 ***Guestbook***
 
-端口输入框中默认为 ***30080***，无需修改，直接点击 ***Display Port*** 按钮
+在端口输入框中输入 ***30002***，然后点击 ***Display Port*** 按钮
 
 出现 harbor 登录页面, harbor 的默认账号密码是 admin/Harbor12345
 
