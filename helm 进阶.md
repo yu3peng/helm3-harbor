@@ -43,17 +43,17 @@ Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PAT
 
 # /persistence
 
-找到 ***persistence.enabled*** 字段，将值改为 ***false***
+找到 persistence.enabled 字段，将值改为 false
 
-# / expose
+# /expose
 
-找到 ***expose.type*** 字段，将值改为 ***nodePort***
+找到 expose.type 字段，将值改为 nodePort
 
-找到 ***expose.tls.enabled*** 字段，将值改为 ***false***
+找到 expose.tls.enabled 字段，将值改为 false
 
-# / externalURL
+# /externalURL
 
-找到 ***externalURL*** 字段，将值改为 ***http://127.0.0.1:30002***
+找到 externalURL 字段，将值改为 http://127.0.0.1:30002
 
 配置修改完只有，保存。
 
