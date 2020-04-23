@@ -10,19 +10,19 @@ https://www.katacoda.com/courses/kubernetes/guestbook
 Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PATH 下就可以使用了。
 
 ```
-# cd /opt && wget https://get.helm.sh/helm-v3.1.0-linux-amd64.tar.gz
-# tar -xvf helm-v3.1.0-linux-amd64.tar.gz
-# mv linux-amd64/helm /usr/local/bin/
+$ cd /opt && wget https://get.helm.sh/helm-v3.1.0-linux-amd64.tar.gz
+$ tar -xvf helm-v3.1.0-linux-amd64.tar.gz
+$ mv linux-amd64/helm /usr/local/bin/
 
-# helm version
+$ helm version
 ```
 
 ### 3. 利用 helm3 安装 harbor
 
 ```
-# helm repo add goharbor https://helm.goharbor.io
+$ helm repo add goharbor https://helm.goharbor.io
 
-# helm install harbor goharbor/harbor --set persistence.enabled=false \
+$ helm install harbor goharbor/harbor --set persistence.enabled=false \
 --set expose.type=nodePort --set expose.tls.enabled=false \
 --set externalURL=http://127.0.0.1:30002
 ```
@@ -40,9 +40,9 @@ Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PAT
 先下载一个chart包，待用
 
 ```
-# helm repo add google  https://kubernetes-charts.storage.googleapis.com
-# helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
-# helm pull stable/nginx-ingress
+$ helm repo add google  https://kubernetes-charts.storage.googleapis.com
+$ helm repo add stable https://kubernetes.oss-cn-hangzhou.aliyuncs.com/charts
+$ helm pull stable/nginx-ingress
 ```
 
 在 ***项目*** 栏中点击 ***新建项目*** 按钮，新建一个chart repo，起名为 ***chart_repo***
@@ -50,19 +50,19 @@ Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PAT
 添加 repo 到 helm 中
 
 ```
-# helm repo add test http://127.0.0.1:30002/chartrepo/chart_repo
+$ helm repo add test http://127.0.0.1:30002/chartrepo/chart_repo
 ```
 
 安装使用 helm-push 插件
 
 ```
-# helm plugin install https://github.com/chartmuseum/helm-push
+$ helm plugin install https://github.com/chartmuseum/helm-push
 ```
 
 推送 chart 到 harbor 中
 
 ```
-# helm push nginx-ingress-0.9.5.tgz test --username admin --password Harbor12345
+$ helm push nginx-ingress-0.9.5.tgz test --username admin --password Harbor12345
 ```
 
 当出现以下提示时，说明推送正常
