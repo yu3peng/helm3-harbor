@@ -10,8 +10,8 @@ https://www.katacoda.com/courses/kubernetes/guestbook
 Helm3 不需要安装tiller，下载到 Helm 二进制文件直接解压到 $PATH 下就可以使用了。
 
 ```
-$ cd /opt && wget https://get.helm.sh/helm-v3.1.0-linux-amd64.tar.gz
-$ tar -xvf helm-v3.1.0-linux-amd64.tar.gz
+$ cd /opt && wget https://get.helm.sh/helm-v3.6.2-linux-amd64.tar.gz
+$ tar -xvf helm-v3.6.2-linux-amd64.tar.gz
 $ mv linux-amd64/helm /usr/local/bin/
 
 $ helm version
